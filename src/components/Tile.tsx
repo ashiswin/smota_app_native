@@ -16,9 +16,9 @@ type Props = {
 const Tile: React.FC<Props> = ({ tileData, navigation }) => {
     return (
         <View style={{ flexDirection: "column" }}>
-            <TouchableHighlight style={{ borderRadius: 8 }} onPress={() => navigation.navigate(tileData.title)}>
+            <TouchableHighlight style={{ borderRadius: 8 }} onPress={() => navigation.navigate(tileData.title, {headerImage: tileData.background})}>
                 <ImageBackground 
-                    source={{ uri: "https://reactjs.org/logo-og.png" }} 
+                    source={{ uri: tileData.background }} 
                     style={styles.tile} 
                     imageStyle={{ borderRadius: 8 }} 
                     resizeMode="cover" />

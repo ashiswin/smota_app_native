@@ -7,6 +7,7 @@ import {
     Text,
     useColorScheme,
     View,
+    ImageBackground,
 } from 'react-native';
 import {
     Colors,
@@ -14,8 +15,9 @@ import {
 import Tile from '../components/Tile';
 import { DummyTiles } from '../../DummyTiles';
 import HorizontalTile from '../components/HorizontalTile';
+import LinearGradient from 'react-native-linear-gradient';
 
-const TileScreen = ({ navigation, title }) => {
+const TileScreen = ({ navigation, title, route }) => {
     const isDarkMode = useColorScheme() === 'dark';
     const backgroundStyle = {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -58,7 +60,22 @@ const TileScreen = ({ navigation, title }) => {
                 style={backgroundStyle}>
                 <View style={{ flexDirection: 'column', flexGrow: 1, height: '100%' }}>
                     <View style={{ width: '100%', height: 196, backgroundColor: 'black' }}>
-                        <Text style={{ position: 'absolute', bottom: 16, left: 16, fontWeight: 'bold', color: 'white', fontSize: 24 }}>{title}</Text>
+                        {
+                            isHome
+                                ? null
+                                : <ImageBackground
+                                    source={{ uri: route.params.headerImage }}
+                                    style={{ width: '100%', height: 196, backgroundColor: 'black' }}
+                                    imageStyle={{opacity: 0.6}}
+                                    resizeMode="cover" />
+                        }
+                        {/* <LinearGradient
+                            style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: 64}}
+                            colors={['#000000DD', 'transparent']}
+                            start={{x: 0, y: 1}}
+                            end={{x:0, y: 0}}>
+                        </LinearGradient> */}
+                        <Text style={{position: 'absolute', bottom: 16, left: 16, fontWeight: 'bold', color: 'white', fontSize: 24 }}>{title}</Text>
                     </View>
                     <View
                         style={{
