@@ -1,44 +1,77 @@
 import React from 'react';
 import {
-    TouchableHighlight,
-    StyleSheet,
-    Text,
-    View,
-    Linking,
+  TouchableHighlight,
+  StyleSheet,
+  Text,
+  View,
+  Linking,
+  ImageBackground,
+  Image,
 } from 'react-native';
-import { TileData } from '../../DummyTiles';
+import {TileData} from '../../DummyTiles';
 
 type Props = {
-    tileData: TileData,
-    navigation: any,
-}
+  tileData: TileData;
+  navigation: any;
+};
 
-const HorizontalTile: React.FC<Props> = ({ tileData, navigation }) => {
-    return (
-        <View style={{ marginVertical: 4 }}>
-            <TouchableHighlight style={{borderRadius: 8}} onPress={() => tileData.isLink ? navigation.navigate('WebpageScreen', {uri: tileData.target, title: tileData.title}) : navigation.navigate(tileData.target)}>
-                <View style={styles.tile}>
-                    <Text style={styles.tile_title}>{tileData.title}</Text>
-                </View>
-            </TouchableHighlight>
+const HorizontalTile: React.FC<Props> = ({tileData, navigation}) => {
+  return (
+    <TouchableHighlight
+      style={{borderRadius: 8, elevation: 12, marginBottom: 8}}
+      onPress={() =>
+        tileData.isLink
+          ? navigation.navigate('WebpageScreen', {
+              uri: tileData.target,
+              title: tileData.title,
+            })
+          : navigation.navigate(tileData.target)
+      }>
+      <View
+        style={{
+          flexDirection: 'row',
+          borderTopLeftRadius: 8,
+          borderTopRightRadius: 8,
+          borderBottomLeftRadius: 8,
+          borderBottomRightRadius: 8,
+          backgroundColor: 'white',
+        }}>
+        <Image
+          source={typeof(tileData.background) === 'string' ? {uri: tileData.background} : tileData.background}
+          style={styles.image}
+          resizeMode="cover"
+          borderTopLeftRadius={8}
+          borderBottomLeftRadius={8}
+        />
+        <View
+          style={{
+              flex: 1,
+            flexDirection: 'column',
+            marginLeft: 8,
+            marginTop: -4,
+            justifyContent: 'center',
+          }}>
+          <Text style={styles.tile_title}>{tileData.title}</Text>
+          {
+              tileData.description === undefined
+                ? null
+                : <Text>{tileData.description}</Text>
+          }
         </View>
-    )
-}
+      </View>
+    </TouchableHighlight>
+  );
+};
 
 const styles = StyleSheet.create({
-    tile: {
-        backgroundColor: 'black',
-        width: '100%',
-        height: 64,
-        borderRadius: 8,
-        alignContent: "center",
-        justifyContent: 'center',
-        paddingHorizontal: 16,
-    },
-    tile_title: {
-        color: "white",
-        fontSize: 24
-    }
+  image: {
+    width: 76,
+    height: 76,
+  },
+  tile_title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 });
 
 export default HorizontalTile;
