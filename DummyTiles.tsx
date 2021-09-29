@@ -22,19 +22,19 @@ export const DummyTiles: { [name: string]: TileData[] } = {
             title: 'Highlights',
             isLink: false,
             target: 'Highlights',
-            background: 'https://reactjs.org/logo-og.png',
+            background: 'https://material.io/archive/guidelines/assets/0BybB4JO78tNpRlY1eHJ4LTh4ZjQ/01-duration-and-easing.png',
         },
         {
             title: 'I Want To',
             isLink: false,
             target: 'I Want To',
-            background: 'https://reactjs.org/logo-og.png',
+            background: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVH7UujVKOidjbZOkexn-BdaLZbqG9K7kje1fSFApShsmPq5-uEVSeXJ9CAHlQwCih3_E&usqp=CAU',
         },
         {
             title: 'Advent',
             isLink: false,
             target: 'Advent',
-            background: 'https://reactjs.org/logo-og.png',
+            background: 'https://cdn.wallpapersafari.com/51/45/GjnrRC.jpg',
         },
     ],
     'Mass': [
