@@ -18,11 +18,12 @@ import {
   TouchableHighlight,
   TouchableWithoutFeedback,
 } from 'react-native-gesture-handler';
+import {SliderBox} from 'react-native-image-slider-box';
 
 const TileScreen = ({navigation, title, route}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : 'white',
+    backgroundColor: isDarkMode ? Colors.darker : Colors.white,
     height: '100%',
   };
   const isHome = title === undefined;
@@ -79,12 +80,14 @@ const TileScreen = ({navigation, title, route}) => {
         <View style={{flexDirection: 'column', flexGrow: 1, height: '100%'}}>
           <View style={{width: '100%', height: 196, backgroundColor: 'black'}}>
             {isHome ? (
-              <ImageBackground
-                source={{
-                  uri: 'https://cdn.wallpapersafari.com/75/28/4NaTI3.jpg',
-                }}
-                style={{width: '100%', height: 196, backgroundColor: 'black'}}
-                resizeMode="cover"
+              <SliderBox
+                images={[
+                  require('../../assets/images/smota-jumbotron.jpg'),
+                  require('../../assets/images/smota-jumbotron-2.jpg'),
+                  require('../../assets/images/smota-jumbotron-3.jpg'),
+                ]}
+                autoplay={true}
+                circleLoop={true}
               />
             ) : (
               <ImageBackground
@@ -120,7 +123,7 @@ const TileScreen = ({navigation, title, route}) => {
           <View
             style={{
               backgroundColor: isDarkMode ? Colors.black : Colors.white,
-              paddingVertical: isHome ? 16 : 8,
+              paddingVertical: 16,
               paddingHorizontal: 16,
             }}>
             {tiles}

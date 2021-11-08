@@ -69,7 +69,7 @@ export const DummyTiles: {[name: string]: TileData[]} = {
       title: 'Sunday Readings',
       isLink: true,
       target: '',
-      background: 'https://reactjs.org/logo-og.png',
+      background: require('./assets/images/1_mass.png'),
       description: undefined,
     },
   ],
