@@ -14,7 +14,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Tile from '../components/Tile';
 import {DummyTiles} from '../../DummyTiles';
 import HorizontalTile from '../components/HorizontalTile';
-import LinearGradient from 'react-native-linear-gradient';
 import {
   TouchableHighlight,
   TouchableWithoutFeedback,
@@ -106,12 +105,6 @@ const TileScreen = ({navigation, title, route}) => {
                 </TouchableWithoutFeedback>
               </ImageBackground>
             )}
-            {/* <LinearGradient
-                            style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: 64}}
-                            colors={['#000000DD', 'transparent']}
-                            start={{x: 0, y: 1}}
-                            end={{x:0, y: 0}}>
-                        </LinearGradient> */}
             <Text
               style={{
                 position: 'absolute',
